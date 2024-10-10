@@ -13,6 +13,7 @@ public class PlayerCompont : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // —‘‚ð“]‚ª‚·
         transform.Rotate(0, 0, 180 * Time.deltaTime);
     }
 }

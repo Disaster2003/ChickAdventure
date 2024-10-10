@@ -22,10 +22,12 @@ public class ExplainControl : MonoBehaviour
     {
         if (timer <= 0)
         {
+            // ƒvƒŒƒC‰æ–Ê‚Ö
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         }
         timer += -Time.deltaTime;
 
+        // “§–¾‰»
         txtTurorialMessage.color = Color.Lerp(txtTurorialMessage.color, Color.clear, 0.5f * Time.deltaTime);
     }
 }

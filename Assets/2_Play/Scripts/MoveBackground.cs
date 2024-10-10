@@ -8,7 +8,7 @@ public class MoveBackground : MonoBehaviour
     void Update()
     {
         // ”wŒi‘JˆÚ
-        transform.position += new Vector3(-5 * Time.deltaTime, 0);
+        transform.Translate(-5 * Time.deltaTime, 0, 0);
         if(transform.position.x <= -38)
         {
             transform.position = Vector3.zero;

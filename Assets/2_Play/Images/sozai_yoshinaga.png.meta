@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,7 +117,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sozai_yoshinaga_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 934
+        width: 124
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf4f36af391c1f4889a79c312d01cfe
+      internalID: -1477631063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sozai_yoshinaga_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 808
+        width: 195
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17252a3918786c04ba788d3e596a05be
+      internalID: 666072302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sozai_yoshinaga_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 659
+        width: 122
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d53486864fd75542b8bae97041b7065
+      internalID: -1397433418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sozai_yoshinaga_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 570
+        width: 256
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7b9fde19cbff346be0bd3aa7de291f
+      internalID: 12298593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sozai_yoshinaga_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 443
+        width: 252
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0787505e69a6eef4398f473cad1d073e
+      internalID: 814854915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -128,7 +233,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sozai_yoshinaga_0: -1477631063
+      sozai_yoshinaga_1: 666072302
+      sozai_yoshinaga_2: -1397433418
+      sozai_yoshinaga_3: 12298593
+      sozai_yoshinaga_4: 814854915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

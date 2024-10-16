@@ -81,6 +81,7 @@ public class PlayerComponent : MonoBehaviour
         if (hp <= 0)
         {
             // ƒ‰ƒ“ƒLƒ“ƒO‚Ö
+            Time.timeScale = 1;
             GameManager.OnClick();
             return;
         }

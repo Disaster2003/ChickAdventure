@@ -2,22 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-public class PlayerCompont : MonoBehaviour
+public class PlayerComponent : MonoBehaviour
 {
-    Vector3 inputMove;
+    private static PlayerComponent instance; // クラスのインスタンス
+
+    Vector3 inputMove; // 入力移動量の初期化
 
     private Rigidbody2D rb;
-    private bool isJumped;
+    private bool isJumped; // true = ジャンプした、false = ジャンプしていない
 
-    private enum STATE_PLAYER
+    private float hp;
+    [SerializeField] float hpMax;
+    [SerializeField] Image imgHpBar;
+
+    public enum STATE_PLAYER
     {
         EGG,     // 卵
         BORN,    // 生まれたて
         BABY,    // 赤ちゃん
         GANG,    // ギャング
+        NORMAL,  // ひよこ
         MACHINE, // ロボ
         ADULT,   // にわとり
+        NONE,    // 未設定
     }
     private STATE_PLAYER state_player;
 
@@ -26,24 +35,37 @@ public class PlayerCompont : MonoBehaviour
     [SerializeField] Sprite[] born;
     [SerializeField] Sprite[] baby;
     [SerializeField] Sprite[] gang;
+    [SerializeField] Sprite[] normal;
     [SerializeField] Sprite[] machine;
     [SerializeField] Sprite[] adult;
-    private float intervalAnimation;
+    private float intervalAnimation; // アニメーションのインターバル
 
     private InputControl IC;
 
     // Start is called before the first frame update
     void Start()
     {
-        inputMove = Vector3.zero;
+        if(instance == null)
+        {
+            // Singleton
+            instance = this;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+
+        inputMove = Vector3.zero; // 入力移動量の初期化
 
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         isJumped = false;
 
+        hp = hpMax;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
-        state_player = STATE_PLAYER.EGG;
+        state_player = STATE_PLAYER.EGG; // プレイヤー状態の初期化
         intervalAnimation = 0;
+
+
 
         IC = new InputControl(); // インプットアクションを取得
         IC.Player.Move.started += OnMove; // 全てのアクションにイベントを登録
@@ -73,6 +95,9 @@ public class PlayerCompont : MonoBehaviour
             case STATE_PLAYER.GANG:
                 Animation(gang);
                 break;
+            case STATE_PLAYER.NORMAL:
+                Animation(normal);
+                break;
             case STATE_PLAYER.MACHINE:
                 Animation(machine);
                 break;
@@ -83,9 +108,22 @@ public class PlayerCompont : MonoBehaviour
 
         Land();
 
+        HpBar();
+
         if (inputMove.magnitude < 0.01f) return;
+        // 左右移動
         transform.position += 5 * inputMove.normalized * Time.deltaTime;
     }
+
+    /// <summary>
+    /// インスタンスを取得する
+    /// </summary>
+    public static PlayerComponent GetInstance() { return instance; }
+
+    /// <summary>
+    /// 体力を取得する
+    /// </summary>
+    public float GetHp() { return hp; }
 
     /// <summary>
     /// 移動処理
@@ -119,6 +157,9 @@ public class PlayerCompont : MonoBehaviour
     {
         if (!isJumped) return;
 
+        // nullチェック
+        if (rb == null) return;
+
         if (transform.position.y < -3.5f)
         {
             // 着地
@@ -130,6 +171,14 @@ public class PlayerCompont : MonoBehaviour
     }
 
     /// <summary>
+    /// Hpバー
+    /// </summary>
+    private void HpBar()
+    {
+        imgHpBar.fillAmount = hp / hpMax;
+    }
+
+    /// <summary>
     /// アニメーション処理
     /// </summary>
     /// <param name="_sprite">アニメーション画像</param>
@@ -137,6 +186,7 @@ public class PlayerCompont : MonoBehaviour
     {
         if (intervalAnimation > 0.2f)
         {
+            // アニメーションのインターバルを初期化
             intervalAnimation = 0;
 
             for (int i = 0; i < _sprite.Length; i++)
@@ -166,14 +216,32 @@ public class PlayerCompont : MonoBehaviour
         }
         else
         {
+            // アニメーションのインターバル中
             intervalAnimation += Time.deltaTime;
         }
     }
+
+    /// <summary>
+    /// プレイヤーの状態を切り替える
+    /// </summary>
+    /// <param name="_state_player">切り替え先のプレイヤーの状態</param>
+    public void ChangePlayerState(STATE_PLAYER _state_player = STATE_PLAYER.NONE)
+    {
+        if(state_player == STATE_PLAYER.NONE)
+        {
+            Debug.LogError("プレイヤーの状態が未設定です");
+            return;
+        }
+
+        if (state_player == STATE_PLAYER.BABY) transform.rotation = Quaternion.Euler(Vector3.zero);
+        state_player = _state_player;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name.Contains("Rock"))
+        if(collision.name.Contains("Rock") || collision.name.Contains("Wood"))
         {
-
+            hp--;
         }
     }
 }

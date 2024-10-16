@@ -7,29 +7,36 @@ public class GameManager : MonoBehaviour
 {
     private enum STATE_SCENE
     {
-        TITLE,
-        EXPLAIN,
-        PLAY,
-        RANKING,
+        TITLE,  // タイトル画面
+        EXPLAIN,// 説明画面
+        PLAY,   // プレイ画面
+        RANKING,// ランキング画面
     }
-    private STATE_SCENE state_scene;
+    private static STATE_SCENE state_scene;
 
     // Start is called before the first frame update
     void Start()
     {
-        state_scene = STATE_SCENE.TITLE;
+        state_scene = STATE_SCENE.TITLE; // シーンの初期化
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(state_scene == STATE_SCENE.PLAY)
+        {
+            if(PlayerComponent.GetInstance().GetHp() <= 0)
+            {
+                // ランキングへ
+                OnClick();
+            }
+        }
     }
 
     /// <summary>
     /// ボタン処理
     /// </summary>
-    public void OnClick()
+    public static void OnClick()
     {
         // 次のシーンへ
         int buildIndex = SceneManager.GetActiveScene().buildIndex;

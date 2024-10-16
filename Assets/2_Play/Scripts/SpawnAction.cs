@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnAction : MonoBehaviour
 {
-    [SerializeField] GameObject spawnObject;
-    private float intervalSpawn;
+    [SerializeField] GameObject[] spawnObject;
+    private float intervalSpawn; // スポーン時間のインターバル
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,15 @@ public class SpawnAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spawn();
-        // 時間経過
-        intervalSpawn += -Time.deltaTime;
+        if (intervalSpawn <= 0)
+        {
+            Spawn();
+        }
+        else
+        {
+            // 生成のインターバル中
+            intervalSpawn += -Time.deltaTime;
+        }
     }
 
     /// <summary>
@@ -26,10 +32,8 @@ public class SpawnAction : MonoBehaviour
     /// </summary>
     private void Spawn()
     {
-        if (intervalSpawn <= 0)
-        {
-            intervalSpawn = Random.Range(1.0f, 2.0f);
-            Instantiate(spawnObject);
-        }
+        // スポーン
+        intervalSpawn = Random.Range(2.0f, 5.0f);
+        Instantiate(spawnObject[Random.Range(0,2)]);
     }
 }

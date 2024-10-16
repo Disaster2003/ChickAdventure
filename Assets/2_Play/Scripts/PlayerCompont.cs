@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class PlayerCompont : MonoBehaviour
 {
+    Vector3 inputMove;
+
     private Rigidbody2D rb;
     private bool isJumped;
 
@@ -33,6 +36,8 @@ public class PlayerCompont : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inputMove = Vector3.zero;
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         isJumped = false;
@@ -42,7 +47,10 @@ public class PlayerCompont : MonoBehaviour
         intervalAnimation = 0;
 
         IC = new InputControl(); // インプットアクションを取得
-        IC.Player.Jump.started += OnJump; // 全てのアクションにイベントを登録
+        IC.Player.Move.started += OnMove; // 全てのアクションにイベントを登録
+        IC.Player.Move.performed += OnMove;
+        IC.Player.Move.canceled += OnMove;
+        IC.Player.Jump.started += OnJump;
         IC.Enable(); // インプットアクションを機能させる為に有効化する。
     }
 
@@ -75,6 +83,17 @@ public class PlayerCompont : MonoBehaviour
         }
 
         Land();
+
+        if (inputMove.magnitude < 0.01f) return;
+        transform.position += 5 * inputMove.normalized * Time.deltaTime;
+    }
+
+    /// <summary>
+    /// 移動処理
+    /// </summary>
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        inputMove = context.ReadValue<Vector2>();
     }
 
     /// <summary>

@@ -430,6 +430,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec46c3959c3985a4dafc38b50ed54479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  egg:
+  - {fileID: -519353912, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 509062305, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 149691926, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 1241165174, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: -1991186306, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  born:
+  - {fileID: -1929263736, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 1992420641, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 260500772, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: -455195374, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: -1833297934, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  baby:
+  - {fileID: 729588966, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 431760430, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: -1033718792, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 94576107, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  - {fileID: 121832576, guid: f99404917eaad71419f915b0f2a776c8, type: 3}
+  gang:
+  - {fileID: -703206979, guid: e101314d9884c0f44a9fbefa7a8f7915, type: 3}
+  - {fileID: 845908209, guid: e101314d9884c0f44a9fbefa7a8f7915, type: 3}
+  - {fileID: 116988600, guid: e101314d9884c0f44a9fbefa7a8f7915, type: 3}
+  - {fileID: -2016503205, guid: e101314d9884c0f44a9fbefa7a8f7915, type: 3}
+  machine:
+  - {fileID: 1373342357, guid: 6bb0659fad2ac22458833ae15e8263a8, type: 3}
+  - {fileID: -307654887, guid: 6bb0659fad2ac22458833ae15e8263a8, type: 3}
+  - {fileID: -1698579166, guid: 6bb0659fad2ac22458833ae15e8263a8, type: 3}
+  - {fileID: 33341729, guid: 6bb0659fad2ac22458833ae15e8263a8, type: 3}
+  adult:
+  - {fileID: 722629023, guid: 9f1a15b15651ae34cb295c07a44c65c3, type: 3}
+  - {fileID: 2056971341, guid: 9f1a15b15651ae34cb295c07a44c65c3, type: 3}
+  - {fileID: -1123080204, guid: 9f1a15b15651ae34cb295c07a44c65c3, type: 3}
+  - {fileID: -1280524726, guid: 9f1a15b15651ae34cb295c07a44c65c3, type: 3}
 --- !u!50 &492834229
 Rigidbody2D:
   serializedVersion: 4

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class AgeCount : MonoBehaviour
 {
     private float age; // ”N—î
 
@@ -93,5 +93,10 @@ public class Timer : MonoBehaviour
         {
             interval += Time.deltaTime;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetFloat("age", age);
     }
 }

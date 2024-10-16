@@ -78,6 +78,13 @@ public class PlayerComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp <= 0)
+        {
+            // ランキングへ
+            GameManager.OnClick();
+            return;
+        }
+
         switch (state_player)
         {
             case STATE_PLAYER.EGG:
@@ -119,11 +126,6 @@ public class PlayerComponent : MonoBehaviour
     /// インスタンスを取得する
     /// </summary>
     public static PlayerComponent GetInstance() { return instance; }
-
-    /// <summary>
-    /// 体力を取得する
-    /// </summary>
-    public float GetHp() { return hp; }
 
     /// <summary>
     /// 移動処理

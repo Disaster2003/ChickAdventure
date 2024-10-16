@@ -20,19 +20,6 @@ public class GameManager : MonoBehaviour
         state_scene = STATE_SCENE.TITLE; // シーンの初期化
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(state_scene == STATE_SCENE.PLAY)
-        {
-            if(PlayerComponent.GetInstance().GetHp() <= 0)
-            {
-                // ランキングへ
-                OnClick();
-            }
-        }
-    }
-
     /// <summary>
     /// ボタン処理
     /// </summary>

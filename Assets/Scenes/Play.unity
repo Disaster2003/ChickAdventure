@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 603128413}
   - component: {fileID: 603128415}
   m_Layer: 5
-  m_Name: txtTimer
+  m_Name: txtAgeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,7 +663,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603128413
 MonoBehaviour:
@@ -698,7 +698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'age : 888.8'
+  m_Text: 'age : 8888.8'
 --- !u!222 &603128414
 CanvasRenderer:
   m_ObjectHideFlags: 0

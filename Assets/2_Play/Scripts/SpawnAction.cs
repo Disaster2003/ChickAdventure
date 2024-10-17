@@ -34,6 +34,6 @@ public class SpawnAction : MonoBehaviour
     {
         // ÉXÉ|Å[Éì
         intervalSpawn = Random.Range(2.0f, 5.0f);
-        Instantiate(spawnObject[Random.Range(0,2)]);
+        Instantiate(spawnObject[Random.Range(0,spawnObject.Length)]);
     }
 }

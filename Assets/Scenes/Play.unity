@@ -330,6 +330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject:
   - {fileID: 3134380096081357635, guid: 676d354735f34964b9731c3650e8e925, type: 3}
+  - {fileID: 3134380096081357635, guid: 676d354735f34964b9731c3650e8e925, type: 3}
+  - {fileID: 3134380096081357635, guid: 6f36171ac86d2e74aac0bb63ebc65477, type: 3}
+  - {fileID: 5934117190701939509, guid: 14e2c95024ff710428c8bfa28c15aaf1, type: 3}
   - {fileID: 5934117190701939509, guid: 324777f2e6156e54281b440243f831cd, type: 3}
 --- !u!1 &474764251
 GameObject:

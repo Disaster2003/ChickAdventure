@@ -7,7 +7,8 @@ public class HurdleAction : MonoBehaviour
     private enum STATE_HURDLE
     {
         ROCK, // Šâ
-        WOOD, // –Ø
+        WOOD_LOW,
+        WOOD_MIDDLE, // –Ø
     }
     [SerializeField] STATE_HURDLE state_hurdle;
 
@@ -20,7 +21,10 @@ public class HurdleAction : MonoBehaviour
             case STATE_HURDLE.ROCK:
                 transform.position = new Vector3(10, -3.5f);
                 break;
-            case STATE_HURDLE.WOOD:
+            case STATE_HURDLE.WOOD_LOW:
+                transform.position = new Vector3(10,-2.8f);
+                break;
+            case STATE_HURDLE.WOOD_MIDDLE:
                 transform.position = new Vector3(10, 0);
                 break;
         }

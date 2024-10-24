@@ -48,7 +48,7 @@ public class AgeCount : MonoBehaviour
             }
             // ”N‚ðŽæ‚é
             age += Time.deltaTime;
-            GetComponent<Text>().text = "age : " + age.ToString("F1");
+            GetComponent<Text>().text = "age : " + age.ToString("F0");
         }
 
         switch (state_player)
